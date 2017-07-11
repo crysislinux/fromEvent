@@ -1,0 +1,16 @@
+<md-sidenav-container class="container" fullscreen>
+  <md-sidenav #sidenav mode="side" opened="false">
+
+  </md-sidenav>
+  <div class="main">
+    <md-toolbar>
+      <button md-icon-button (click)="sidenav.toggle()">
+        <md-icon>menu</md-icon>
+      </button>
+      {{title}}
+    </md-toolbar>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</md-sidenav-container>

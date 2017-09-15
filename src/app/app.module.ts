@@ -1,24 +1,33 @@
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { MaterialModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule }  from '@angular/platform-browser/animations';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
 import { CoreModule } from '@app/core';
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
+import { TestPageComponent } from './test-page';
 
+import { TextMaskModule } from './text-mask';
+import { WordCaseModule } from './word-case';
 
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     routing,
     CoreModule,
     MaterialModule,
+    TextMaskModule,
+    WordCaseModule,
   ],
   declarations: [
     AppComponent,
+    TestPageComponent,
   ],
   bootstrap: [ AppComponent ],
   providers: [

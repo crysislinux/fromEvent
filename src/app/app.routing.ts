@@ -1,9 +1,11 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { NotFoundComponent } from '@app/core';
+import { TestPageComponent } from './test-page';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/applications', pathMatch: 'full' },
+  { path: '', redirectTo: '/test-page', pathMatch: 'full' },
+  { path: 'test-page', component: TestPageComponent },
   { path: '**', component: NotFoundComponent},
 ];
 

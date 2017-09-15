@@ -1,0 +1,9 @@
+<form [formGroup]="form">
+  <md-input-container>
+    <input mdInput formControlName="name" cfWordCase="upper"/>
+  </md-input-container>
+</form>
+
+<p>
+  {{form.value | json}}
+</p>

@@ -7,8 +7,10 @@ import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularcla
 
 import { CoreModule } from '@app/core';
 import { routing } from './app.routing';
+import { MessengerService } from './messenger';
 import { AppComponent } from './app.component';
 import { TestPageComponent } from './test-page';
+import { EventMockComponent } from './event-mock';
 
 import { TextMaskModule } from './text-mask';
 import { WordCaseModule } from './word-case';
@@ -28,10 +30,11 @@ import { WordCaseModule } from './word-case';
   declarations: [
     AppComponent,
     TestPageComponent,
+    EventMockComponent,
   ],
   bootstrap: [ AppComponent ],
   providers: [
-
+    MessengerService,
   ]
 })
 

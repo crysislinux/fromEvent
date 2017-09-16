@@ -1,0 +1,11 @@
+.content {
+  height: 800px;
+  width: 100%;
+  background: purple;
+}
+
+:host {
+  display: block;
+  height: 400px;
+  overflow: auto;
+}

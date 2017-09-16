@@ -1,31 +1,35 @@
-import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy, NgZone, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { MdButton, Platform } from '@angular/material';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/fromEvent';
+import { MessengerService } from '../messenger';
 
 @Component({
   selector: 'cf-test-page',
   templateUrl: 'test-page.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: ['test-page.component.scss'],
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TestPageComponent implements OnInit, OnDestroy {
-  form: FormGroup;
-  private sub;
+export class TestPageComponent {
+  @ViewChild('wrapper', { read: ElementRef }) wrapper: ElementRef;
+  private counter = 0;
+  get something() {
+    console.log('get called');
+    return `something ${this.counter}`;
+  }
 
-  constructor(private fb: FormBuilder) {
-    this.form = fb.group({
-      name: new FormControl('a'),
-    })
+  constructor(private ms: MessengerService, private er: ElementRef) {
 
-    this.sub = this.form.valueChanges.subscribe(value => {
-      console.log('value changes', value);
-    });
   }
 
   ngOnInit() {
-
+    this.ms.setupScrollElement(this.er.nativeElement);
   }
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
+  test() {
+    this.counter ++;
+    console.log('test')
   }
 
 }
